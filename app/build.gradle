@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    //testing new section
+    id 'org.jetbrains.kotlin.kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -30,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -39,7 +47,30 @@ dependencies {
     implementation libs.material
     implementation libs.androidx.activity
     implementation libs.androidx.constraintlayout
+
+    // view model helpers
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // database helpers
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.room.ktx
+    kapt libs.androidx.room.compiler
+
+    //co-routine / async helpers
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.3'
+
+    //navigation helpers
+    implementation "androidx.navigation:navigation-fragment-ktx:2.9.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.9.3"
+
+
+
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+
 }

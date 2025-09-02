@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="crime-database.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="844"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Crime" custom_title="0" dock_id="1" table="4,5:mainCrime"/><dock_state state="000000ff00000000fd00000001000000020000024800000213fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000000002480000011e00ffffff000002480000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Crime" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="34"/><column index="2" value="131"/><column index="3" value="115"/><column index="4" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- Drop table if it exists
+DROP TABLE IF EXISTS Crime;
+
+-- Create table with correct types
+CREATE TABLE Crime (
+    id TEXT PRIMARY KEY,
+    title TEXT NOT NULL,
+    date INTEGER NOT NULL,
+    isSolved INTEGER NOT NULL
+);
+
+-- Insert 10 rows
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('f47ac10b-58cc-4372-a567-0e02b2c3d479', 'Stolen Wallet', 1693545600000, 0);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('a9b12345-6789-4abc-def0-1234567890ab', 'Lost Keys', 1693632000000, 1);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('d3e45678-9abc-4def-1234-567890abcdef', 'Vandalism', 1693718400000, 0);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('e7f89012-3456-4bcd-ef12-34567890abcd', 'Suspicious Package', 1693804800000, 1);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('b1c23456-7890-4abc-1234-56789abcdef0', 'Car Break-In', 1693891200000, 0);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('c2d34567-8901-4bcd-2345-67890abcdef1', 'Shoplifting', 1693977600000, 1);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('f3e45678-9012-4cde-3456-7890abcdef12', 'Fraud Report', 1694064000000, 0);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('a4f56789-0123-4def-4567-890abcdef123', 'Noise Complaint', 1694150400000, 1);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('b5e67890-1234-4ef0-5678-90abcdef1234', 'Petty Theft', 1694236800000, 0);
+INSERT INTO Crime (id, title, date, isSolved) VALUES ('c6f78901-2345-4f01-6789-0abcdef12345', 'Burglary', 1694323200000, 1);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
