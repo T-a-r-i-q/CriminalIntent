@@ -14,7 +14,7 @@ private const val DATABASE_NAME = "crime-database"
 class CrimeRepository private constructor(context: Context, private val coroutineScope: CoroutineScope = GlobalScope) {
     private val database: CrimeDatabase= Room.databaseBuilder(
         context.applicationContext, CrimeDatabase::class.java, DATABASE_NAME
-        ).createFromAsset(DATABASE_NAME).build()
+        ).createFromAsset(DATABASE_NAME).addMigrations(migration_1_2, migration_2_3).build()
 
     fun getCrimes(): Flow<List<Crime>> = database.crimeDAO().getCrimes()
     suspend fun getCrime(id: UUID): Crime = database.crimeDAO().getCrime(id)
@@ -24,6 +24,11 @@ class CrimeRepository private constructor(context: Context, private val coroutin
             database.crimeDAO().updateCrime(crime)
         }
     }
+
+    suspend fun addCrime(crime: Crime) {
+        database.crimeDAO().addCrime(crime)
+    }
+
 
 
     companion object {
